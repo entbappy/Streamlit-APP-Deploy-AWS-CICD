@@ -4,11 +4,11 @@
 
 	1. Build docker image of the source code
 
-	2. Push your docker image to ECR
+	2. Push your docker image to docker hub
 
 	3. Launch Your EC2 
 
-	4. Pull Your image from ECR in EC2
+	4. Pull Your image from docker hub in EC2
 
 	5. Lauch your docker image in EC2
 
@@ -18,15 +18,10 @@
 
 	#Policy:
 
-	1. AmazonEC2ContainerRegistryFullAccess
-
-	2. AmazonEC2FullAccess
+	1. AmazonEC2FullAccess
 
 	
-## 3. Create ECR repo to store/save docker image
-    - Save the URI: 566373416292.dkr.ecr.ap-south-1.amazonaws.com/stapps
 
-	
 ## 4. Create EC2 machine (Ubuntu) 
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
@@ -63,6 +58,10 @@
 
     AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    DOCKER_PASSWORD
 
-    ECR_REPOSITORY_NAME = simple-app
+    DOCKER_USERNAME
+
+    IMAGE_NAME
+
+    REGISTRY
