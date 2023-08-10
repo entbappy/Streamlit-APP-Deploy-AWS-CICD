@@ -81,7 +81,7 @@ jobs:
       
       - name: Pull images
         run: |
-         docker pull ${{secrets.REGISTRY}}/${{ secrets.IMAGE_NAME }}
+         docker pull ${{secrets.REGISTRY}}/${{ secrets.IMAGE_NAME }}:main
          
       # - name: Stop and remove container if running
       #   run: |
@@ -89,7 +89,7 @@ jobs:
        
       - name: Run Docker Image to serve users
         run: |
-         docker run -d -p 8501:8501 --name=stapp -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.REGISTRY}}/${{ secrets.IMAGE_NAME }}
+         docker run -d -p 8501:8501 --name=stapp -e 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' -e 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' -e 'AWS_REGION=${{ secrets.AWS_REGION }}'  ${{secrets.REGISTRY}}/${{ secrets.IMAGE_NAME }}:main
       - name: Clean previous images and containers
         run: |
          docker system prune -f
